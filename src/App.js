@@ -1,7 +1,7 @@
 import Footer from "./components/Footer";
 import React, { useEffect, useState } from "react";
 import Nav from "./components/Nav";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Books from "./pages/Books";
 import { books } from "./data";
@@ -48,25 +48,27 @@ function App() {
     <Router>
       <div className="App">
         <Nav numberOfItems={numberOfItems()} />
-        <Route path="/" exact component={Home} />
-        <Route path="/books" exact render={() => <Books books={books} />} />
-        <Route
-          path="/books/:id"
-          render={() => (
-            <BooksInfo books={books} addToCart={addToCart} cart={cart} />
-          )}
-        />
-        <Route
-          path="/cart"
-          render={() => (
-            <Cart
-              books={books}
-              cart={cart}
-              changeQuantity={changeQuantity}
-              removeItem={removeItem}
-            />
-          )}
-        />
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/books" exact element={<Books books={books} />} />
+          <Route
+            path="/books/:id"
+            element={
+              <BooksInfo books={books} addToCart={addToCart} cart={cart} />
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <Cart
+                books={books}
+                cart={cart}
+                changeQuantity={changeQuantity}
+                removeItem={removeItem}
+              />
+            }
+          />
+        </Routes>
         <Footer />
       </div>
     </Router>
