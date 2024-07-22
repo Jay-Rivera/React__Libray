@@ -33,7 +33,7 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
                         <img
                           src={book.url}
                           className="cart__book--img"
-                          alt="book image"
+                          alt="Image of the book cover you selected"
                         ></img>
                         <div className="cart__book--info">
                           <span className="cart__book--title">
