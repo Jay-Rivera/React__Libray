@@ -30,7 +30,11 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
                   return (
                     <div className="cart__item">
                       <div className="cart__book">
-                        <img src={book.url} className="cart__book--img"></img>
+                        <img
+                          src={book.url}
+                          className="cart__book--img"
+                          alt="book image"
+                        ></img>
                         <div className="cart__book--info">
                           <span className="cart__book--title">
                             {book.title}
@@ -70,7 +74,11 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
               </div>
               {cart.length === 0 && (
                 <div className="cart__empty">
-                  <img src={EmptyCart} className="cart__empty--img" />
+                  <img
+                    src={EmptyCart}
+                    className="cart__empty--img"
+                    alt="empty cart image"
+                  />
                   <h2>You don't have any books in your cart!</h2>
                   <Link to="/books">
                     <button className="btn">Browse Books</button>
